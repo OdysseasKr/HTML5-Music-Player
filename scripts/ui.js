@@ -50,7 +50,6 @@ var canvasObj = {
   },
   
   drawLine: function(percent){
-    console.log(percent);
     this.context.clearRect(0,0,WIDTH,HEIGHT);
     this.context.beginPath();
     this.context.moveTo(0,HEIGHT/2);
@@ -65,9 +64,10 @@ var canvasObj = {
 // On time update
 audioElement.addEventListener("timeupdate", function(){
     canvasObj.drawLine(audioElement.currentTime/audioElement.duration);
-    var seconds = Math.round(audioElement.currentTime);
-    var minutes = seconds / 60;
-    seconds = Math.round(seconds % 60); 
-    timeTextElement.textContent = minutes+"."+seconds;
+    var seconds = audioElement.currentTime;
+    var minutes = Math.round(seconds / 60);
+    seconds = Math.round(seconds % 60);
+    
+    timeTextElement.textContent = minutes+":"+ (seconds<10?seconds+"0":seconds);
 });
 
