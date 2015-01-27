@@ -3,6 +3,7 @@
  */
 var playlist = {
   
+  // The list containing the tracks
   list:[
           {
             name:"War Drums of the Far East",
@@ -22,19 +23,27 @@ var playlist = {
             src: "music/Angels_Flying_Through_Hell.mp3"
           }
         ],
+        
+  // The index of the track currently being played
   activeTrack: 0,
+  
+  // Moves to the next track, loops if reaches end
   next: function() {
     if (this.activeTrack == this.list.length - 1)
       this.activeTrack = 0;
     else
       this.activeTrack +=1;
   },
+  
+  // Moves to the previous track
   previous: function() {
     if (this.activeTrack == 0)
       this.activeTrack = this.list.length - 1;
     else
       this.activeTrack -= 1;
   },
+  
+  // Returns the track currently being played
   getActive: function() {
     return this.list[this.activeTrack];
   } 

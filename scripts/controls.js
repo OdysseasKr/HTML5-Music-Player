@@ -7,20 +7,18 @@ var volumeBarElement = document.getElementById("volumeBar");
 var nextButtonElement = document.getElementById("nextBtn");
 var previousButtonElement = document.getElementById("previousBtn");
 
-// On load
+// On load set the default values to the audio element 
 audioElement.volume = volumeBarElement.value;
 sourceElement.src = playlist.getActive().src;
 audioElement.load();
-volumeText.textContent = audioElement.volume;
 
 // Play Button
 playButtonElement.addEventListener("click",function(){
-  if (audioElement.paused) {
+  if (audioElement.paused)
     audioElement.play();
-  }
-  else {
+  else 
     audioElement.pause();
-  }
+  
 });
 
 // On Volume Bar change
