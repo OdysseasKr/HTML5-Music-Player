@@ -65,9 +65,9 @@ var canvasObj = {
 // On time update
 audioElement.addEventListener("timeupdate", function(){
     canvasObj.drawLine(audioElement.currentTime/audioElement.duration);
-    var seconds = Math.floor(audioElement.currentTime);
+    var seconds = Math.round(audioElement.currentTime);
     var minutes = seconds / 60;
-    seconds = seconds % 60; 
+    seconds = Math.round(seconds % 60); 
     timeTextElement.textContent = minutes+"."+seconds;
 });
 
