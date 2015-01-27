@@ -5,3 +5,5 @@ I am trying to implement a lightweight but easily customizable and embedable mus
 It's targeted towards websites that need an easy to install player, that can be adapted to the design of the website and be able to play music without flash player or 3rd party libraries.
 The goal is to use as less code as possible and utilize the modern HTML5 technologies to bring the wanted result.
 The final version will be accompanied with an administrator panel for customizing design and the playlist.
+
+All music by TeknoAxe.
