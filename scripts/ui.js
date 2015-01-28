@@ -52,7 +52,7 @@ var timebarObj = {
   context: canvasElement.getContext("2d"),
   
   // Width of the canvas element
-  WIDTH: 300,
+  WIDTH: 240,
   
   // Height of the canvas element
   HEIGHT: 10,
