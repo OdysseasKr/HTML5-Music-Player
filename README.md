@@ -1,4 +1,4 @@
-# Light-HTML5-Music-Player
+# HTML5-Music-Player
 A lightweight music player that uses HTML5 and plain javascript
 
 I am trying to implement a lightweight but easily customizable and embeddable music player. 
@@ -6,4 +6,4 @@ It's targeted towards websites that need an easy to install player, that can be 
 The goal is to use as less code as possible and utilize the modern HTML5 technologies to bring the wanted result.
 The final version will be accompanied by an administrator panel for customizing design and the playlist.
 
-All music by TeknoAxe.
+All included music by TeknoAxe.
