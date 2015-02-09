@@ -3,12 +3,11 @@ var audioElement = document.getElementById("audio");
 var sourceElement = document.getElementById("source");
 var canvasElement = document.getElementById("timeBar");
 var playButtonElement = document.getElementById("playBtn");
-var volumeBarElement = document.getElementById("volumeBar");
+var volumeSliderElement = document.getElementById("volumeSlider");
 var nextButtonElement = document.getElementById("nextBtn");
 var previousButtonElement = document.getElementById("previousBtn");
 
 // On load set the default values to the audio element 
-audioElement.volume = volumeBarElement.value;
 sourceElement.src = playlist.getActive().src;
 audioElement.load();
 
@@ -18,13 +17,15 @@ playButtonElement.addEventListener("click",function(){
     audioElement.play();
   else 
     audioElement.pause();
-  
 });
 
-// On Volume Bar change
-volumeBarElement.addEventListener("change",function(){
-  audioElement.volume = volumeBarElement.value;
+// Setup volume slider using sliderfy.js
+sliderfy(volumeSliderElement);
+audioElement.volume = 1;
+volumeSliderElement.addEventListener("change",function(){
+  audioElement.volume = volumeSliderElement.sliderValue;
 });
+
 
 //Next Button
 nextButtonElement.addEventListener("click",function(){
@@ -47,6 +48,7 @@ previousButtonElement.addEventListener("click",function(){
 // Canvas Click
 canvasElement.addEventListener("mousedown",function(event){
   var x = event.pageX;
+  x -= canvasElement.offsetLeft;
   audioElement.currentTime = (x / canvasElement.width) * audioElement.duration; 
 });
 

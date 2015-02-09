@@ -1,10 +1,12 @@
 #container {
-  background-color: yellow;
+  background-color: #465659;
   width: 300px;
   height: 150px;
   border-radius: 10px;
   margin: 0px;
   padding: 0px;
+  color: #D5E3E6;
+  border:2px solid #ffffff;
 }
 
 #wrapper {
@@ -20,13 +22,49 @@
 }
 
 #controls div{
-  display: inline-block;
+  display: table-cell;
+  vertical-align:middle;
+}
+
+#volumeSlider {
+  width:70px;
+  height:10px;
+  background-color: #DBDBDB;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#volumeSlider div {
+  margin:0px;
+  padding:0px;
+  height:inherit;
+}
+
+#volumeIcon{
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+#filler {
+  width: inherit;
+  background-color: #BAB9B8;
 }
 
 .button {
-  color: white;
-  background-color: green;
+  background-color: #8C8A89;
   padding: 2px;
-  border-radius: 20px;
+  border-radius: 32px;
+  width:32px;
+  height:32px;
   cursor: pointer;
+}
+
+.button img {
+  width:16px;
+  margin-left: 8px;
+  margin-top:4px;
 }

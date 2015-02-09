@@ -29,21 +29,20 @@
       
       <!-- Controls -->
       <div id="controls">
-        <div class="button" id="playBtn">Play</div>
+        <div class="button" id="playBtn"><img src="icons/32/play-32.png"></div>
+        <div class="button" id="previousBtn"><img src="icons/32/rewind-32.png"></div>
+        <div class="button" id="nextBtn"><img src="icons/32/forward-32.png"></div>
+        <div id="volumeIcon"><img src="icons/32/volume-32.png"></div>
+        <div><div id="volumeSlider"><div id="filler"></div></div></div>
         
-        <div class="button" id="previousBtn">Previous</div>
-        <div class="button" id="nextBtn">Next</div>
-      </div>
     </div>
     
     <br>
-    Volume:
-    <span id="volumeText"></span>
-    <input id="volumeBar" type="range" min="0" max="1" value="1" step="0.1">
+    
     
   </div>
   
-  
+  <script src="scripts/sliderfy.js"></script>
   <script src="scripts/playlist.js"></script>
   <script src="scripts/controls.js"></script>
   <script src="scripts/ui.js"></script>

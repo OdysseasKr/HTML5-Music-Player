@@ -8,18 +8,21 @@ var playlist = {
           {
             name:"War Drums of the Far East",
             artist:"TeknoAxe",
+            album:"Nice Album",
             src:"music/War_Drums_of_the_Far_East.mp3"
           },
           
           {
             name: "Chiptune Does Dubstep",
             artist:"TeknoAxe",
+            album:"Great Album",
             src: "music/Chiptune_Does_Dubstep.mp3"
           },
           
           {
             name: "Angels Flying Through Hell",
             artist:"TeknoAxe",
+            album:"Splendid Album",
             src: "music/Angels_Flying_Through_Hell.mp3"
           }
         ],

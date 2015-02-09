@@ -1,44 +1,36 @@
 // Global player elements
 var audioElement = document.getElementById("audio");
 var playButtonElement = document.getElementById("playBtn");
-var volumeBarElement = document.getElementById("volumeBar");
-var volumeTextElement = document.getElementById("volumeText");
+var volumeSliderElement = document.getElementById("volumeSlider");
 var titleTextElement = document.getElementById("titleText");
+var albumTextElement = document.getElementById("albumText");
+var artistTextElement = document.getElementById("artistText");
 var canvasElement = document.getElementById("timeBar");
 var timeTextElement = document.getElementById("timeText");
 
 // Constants
-const PLAY = "Play";
-const PAUSE = "Pause";
+const PLAY = "icons/32/play-32.png";
+const PAUSE = "icons/32/pause-32.png";
 
 //=============================== Buttons and labels ==============================
 
-// Set the volume label to the volume of the audio element
-// * 10 to be in the range 0-10
-// Add a leading "0" in case volume is 0-9 
-volumeTextElement.textContent = audioElement.volume<1?"0" + audioElement.volume * 10:audioElement.volume * 10;
-
 // On load start
 audioElement.addEventListener("loadstart",function(){
+  var filename = playlist.getActive().src;
+  
   titleTextElement.textContent = playlist.getActive().name;
+  albumTextElement.textContent = playlist.getActive().album;
+  artistTextElement.textContent = playlist.getActive().artist;
 });
 
 // On play
 audioElement.addEventListener("play", function(){
-  playButtonElement.textContent = PAUSE;
+  playButtonElement.firstChild.src = PAUSE;
 });
 
 // On pause
 audioElement.addEventListener("pause", function(){
-  playButtonElement.textContent = PLAY;
-});
-
-// On Volume Bar change
-volumeBarElement.addEventListener("change",function(){
-  // Set the volume label to the volume of the audio element
-  // * 10 to be in the range 0-10
-  // Add a leading "0" in case volume is 0-9
-  volumeTextElement.textContent = audioElement.volume<1?"0" + audioElement.volume * 10:audioElement.volume * 10;
+  playButtonElement.firstChild.src = PLAY;
 });
 
 //=============================== Canvas Timebar =============================
@@ -58,10 +50,10 @@ var timebarObj = {
   HEIGHT: 10,
   
   // Background color of the timebar
-  BACKGROUND_COLOR: "magenta",
+  BACKGROUND_COLOR: "#DBDBDB",
   
   // Foreground color of the timebar
-  FOREGROUND_COLOR: "#000000",
+  FOREGROUND_COLOR: "#BAB9B8",
   
   // Initiate the canvas element
   init: function(){
@@ -95,6 +87,6 @@ audioElement.addEventListener("timeupdate", function(){
     var minutes = Math.round(seconds / 60);
     seconds = Math.round(seconds % 60);
     
-    timeTextElement.textContent = minutes+":"+ (seconds<10?seconds+"0":seconds);
+    timeTextElement.textContent = minutes+":"+ (seconds<10?"0"+seconds:seconds);
 });
 
