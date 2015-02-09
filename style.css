@@ -6,7 +6,15 @@
   margin: 0px;
   padding: 0px;
   color: #D5E3E6;
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 0.8em;
   border:2px solid #ffffff;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #wrapper {
@@ -30,12 +38,6 @@
   width:70px;
   height:10px;
   background-color: #DBDBDB;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 #volumeSlider div {
