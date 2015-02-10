@@ -4,6 +4,7 @@ function sliderfy(sliderEl) {
     var handleWidth = handle?handle.offsetWidth:0;
     var container = sliderEl.getBoundingClientRect();
     var fullWidth = sliderEl.offsetWidth;
+    var active = false;
     
     // Create event to dispatch when value is changed
     var changedEvent;
@@ -32,6 +33,7 @@ function sliderfy(sliderEl) {
     
     // Add mousedown listener for the slider
     sliderEl.addEventListener("mousedown",function(e){
+        active = true;
         // Stop the default lement dragging from happening
         e.preventDefault ? e.preventDefault() : e.returnValue = false;
         // Change the value of the slider according to mouse click
@@ -43,7 +45,11 @@ function sliderfy(sliderEl) {
     
     // Add mouseup listener for the slider
     window.addEventListener("mouseup",function(){
-        done();
+        console.log(active);
+        if (active) {
+          done();
+          active = false;
+        }
     },false);
     
     // Run this when action is finished

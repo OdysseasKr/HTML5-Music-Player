@@ -45,12 +45,7 @@ previousButtonElement.addEventListener("click",function(){
   loadNewTrack(playlist.getActive().src);
 });
 
-// Canvas Click
-canvasElement.addEventListener("mousedown",function(event){
-  var x = event.pageX;
-  x -= canvasElement.offsetLeft;
-  audioElement.currentTime = (x / canvasElement.width) * audioElement.duration; 
-});
+
 
 /**
  * Loads a new track on the audio elementFromPoint

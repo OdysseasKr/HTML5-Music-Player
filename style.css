@@ -46,12 +46,25 @@
   height:inherit;
 }
 
+#timeBar {
+  width:250px;
+  height:10px;
+  background-color: #DBDBDB;
+  margin:10px 0px;
+}
+
+#timeBar div {
+  margin:0px;
+  padding:0px;
+  height:inherit;
+}
+
 #volumeIcon{
   padding-left: 20px;
   padding-right: 10px;
 }
 
-#filler {
+.filler {
   width: inherit;
   background-color: #BAB9B8;
 }
