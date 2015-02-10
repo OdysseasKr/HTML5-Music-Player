@@ -29,6 +29,10 @@ function sliderfy(sliderEl) {
             filler.style.width = handleWidth + "px";
         else
             filler.style.width = posX - container.left + handleWidth/2 + "px";
+        
+        
+        sliderEl.sliderValue = (filler.offsetWidth - handleWidth) / (fullWidth-handleWidth);
+        sliderEl.dispatchEvent(changedEvent);
     }
     
     // Add mousedown listener for the slider
@@ -45,7 +49,6 @@ function sliderfy(sliderEl) {
     
     // Add mouseup listener for the slider
     window.addEventListener("mouseup",function(){
-        console.log(active);
         if (active) {
           done();
           active = false;
