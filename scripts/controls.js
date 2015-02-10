@@ -6,24 +6,26 @@ var playBtn = document.getElementById("playBtn");
 var volumeSlider = document.getElementById("volumeSlider");
 var nextBtn = document.getElementById("nextBtn");
 var previousBtn = document.getElementById("previousBtn");
-var titleTextElement = document.getElementById("titleText");
-var albumTextElement = document.getElementById("albumText");
-var artistTextElement = document.getElementById("artistText");
-var timeTextElement = document.getElementById("timeText");
-var PLAY = "icons/32/play-32.png";
-var PAUSE = "icons/32/pause-32.png";
+var titleText = document.getElementById("titleText");
+var albumText = document.getElementById("albumText");
+var artistText = document.getElementById("artistText");
+var timeText = document.getElementById("timeText");
+
+var PLAY_ICON = "icons/32/play-32.png";
+var PAUSE_ICON = "icons/32/pause-32.png";
 
 // On load set the default values to the audio element 
 sourceMP3.src = playlist.getActive().src;
 audio.load();
 
 // On load start
-audio.addEventListener("loadstart",function(){
+audio.addEventListener("loadeddata",function(){
+  console.log("load start");
   var filename = playlist.getActive().src;
   
-  titleTextElement.textContent = playlist.getActive().name;
-  albumTextElement.textContent = playlist.getActive().album;
-  artistTextElement.textContent = playlist.getActive().artist;
+  titleText.textContent = playlist.getActive().name;
+  albumText.textContent = playlist.getActive().album;
+  artistText.textContent = playlist.getActive().artist;
 });
 
 // Play Button
@@ -36,8 +38,8 @@ playBtn.addEventListener("click",function(){
   }
 });
 
-audio.addEventListener("play",function(){playBtn.firstChild.src = PAUSE;},false);
-audio.addEventListener("pause",function(){playBtn.firstChild.src = PLAY;},false);
+audio.addEventListener("play",function(){playBtn.firstChild.src = PAUSE_ICON;},false);
+audio.addEventListener("pause",function(){playBtn.firstChild.src = PLAY_ICON;},false);
 
 // Setup volume slider using sliderfy.js
 sliderfy(volumeSlider);
@@ -47,7 +49,7 @@ volumeSlider.addEventListener("change",function(){
 });
 
 sliderfy(timeSlider);
-timeTextElement.textContent = "0:00";
+timeText.textContent = "0:00";
 // On time update
 timeUpdateCallback = function(){
     timeSlider.firstChild.style.width = (audio.currentTime/audio.duration) *timeSlider.offsetWidth + "px";
@@ -55,7 +57,7 @@ timeUpdateCallback = function(){
     var minutes = Math.round(seconds / 60);
     seconds = Math.round(seconds % 60);
     
-    timeTextElement.textContent = minutes+":"+ (seconds<10?"0"+seconds:seconds);
+    timeText.textContent = minutes+":"+ (seconds<10?"0"+seconds:seconds);
 }
 audio.addEventListener("timeupdate",timeUpdateCallback,false);
 
