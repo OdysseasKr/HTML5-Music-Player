@@ -25,10 +25,6 @@
   margin: 0px;
 }
 
-#timeInfo {
-  margin: 5px 0px;
-}
-
 #controls div{
   display: table-cell;
   vertical-align:middle;
@@ -44,6 +40,15 @@
   margin:0px;
   padding:0px;
   height:inherit;
+}
+
+#timeInfo {
+  margin: 5px 0px;
+}
+
+#timeInfo div {
+  display: table-cell;
+  vertical-align:middle;
 }
 
 #timeBar {

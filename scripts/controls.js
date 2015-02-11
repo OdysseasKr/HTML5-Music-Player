@@ -10,6 +10,7 @@ var titleText = document.getElementById("titleText");
 var albumText = document.getElementById("albumText");
 var artistText = document.getElementById("artistText");
 var timeText = document.getElementById("timeText");
+var log = document.getElementById("log");
 
 var PLAY_ICON = "icons/32/play-32.png";
 var PAUSE_ICON = "icons/32/pause-32.png";
@@ -20,7 +21,6 @@ audio.load();
 
 // On load start
 audio.addEventListener("loadeddata",function(){
-  console.log("load start");
   var filename = playlist.getActive().src;
   
   titleText.textContent = playlist.getActive().name;
@@ -58,6 +58,8 @@ timeUpdateCallback = function(){
     seconds = Math.round(seconds % 60);
     
     timeText.textContent = minutes+":"+ (seconds<10?"0"+seconds:seconds);
+    
+    log.textContent = "Duration: " + audio.duration + "Current: "+ audio.currentTime;
 }
 audio.addEventListener("timeupdate",timeUpdateCallback,false);
 
