@@ -1,7 +1,6 @@
 #container {
   background-color: #465659;
   width: 300px;
-  height: 150px;
   border-radius: 10px;
   margin: 0px;
   padding: 0px;
@@ -17,15 +16,16 @@
   user-select: none;
 }
 
+div {
+  margin: 0px;
+  padding: 0px;
+}
+
 #wrapper {
   padding: 10px;
 }
 
-#trackInfo p {
-  margin: 0px;
-}
-
-#controls div{
+#controls div, #timeInfo div {
   display: table-cell;
   vertical-align:middle;
 }
@@ -37,30 +37,20 @@
 }
 
 #volumeSlider div {
-  margin:0px;
-  padding:0px;
   height:inherit;
 }
 
 #timeInfo {
   margin: 5px 0px;
-}
-
-#timeInfo div {
-  display: table-cell;
-  vertical-align:middle;
-}
+} 
 
 #timeBar {
   width:250px;
   height:10px;
   background-color: #DBDBDB;
-  margin:10px 0px;
 }
 
 #timeBar div {
-  margin:0px;
-  padding:0px;
   height:inherit;
 }
 

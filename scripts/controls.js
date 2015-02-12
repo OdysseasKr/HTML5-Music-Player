@@ -15,19 +15,46 @@ var log = document.getElementById("log");
 var PLAY_ICON = "icons/32/play-32.png";
 var PAUSE_ICON = "icons/32/pause-32.png";
 
-// On load set the default values to the audio element 
+// ================ Add properties and methods to the playlist object
+var playlist = {};
+// Add tracks in the playlist
+playlist.list = trackList;
+// The index of the track currently being played
+playlist.activeTrack = 0;
+// Moves to the next track, loops if reaches end
+playlist.next = function() {
+    if (this.activeTrack == this.list.length - 1)
+      this.activeTrack = 0;
+    else
+      this.activeTrack +=1;
+  };
+// Moves to the previous track
+playlist.previous = function() {
+    if (this.activeTrack == 0)
+      this.activeTrack = this.list.length - 1;
+    else
+      this.activeTrack -= 1;
+  };
+// Returns the track currently being played
+playlist.getActive = function() {
+    return this.list[this.activeTrack];
+  }
+
+  
+// ===================== On load set the default values to the audio element 
 sourceMP3.src = playlist.getActive().src;
 audio.load();
 
-// On load start
+// On load start show the tracks title,artist etc
 audio.addEventListener("loadeddata",function(){
   var filename = playlist.getActive().src;
   
-  titleText.textContent = playlist.getActive().name;
-  albumText.textContent = playlist.getActive().album;
-  artistText.textContent = playlist.getActive().artist;
+  titleText.textContent = playlist.getActive().name || "Unknown Title";
+  albumText.textContent = playlist.getActive().album || "Unknown Album";
+  artistText.textContent = playlist.getActive().artist || "Unknown Artist";
 });
 
+// ===================== Buttons
 // Play Button
 playBtn.addEventListener("click",function(){
   if (audio.paused) {
@@ -38,8 +65,22 @@ playBtn.addEventListener("click",function(){
   }
 });
 
+//Next Button
+nextBtn.addEventListener("click",function(){
+  playlist.next();
+  loadNewTrack(playlist.getActive().src);
+});
+
+//Previous button
+previousBtn.addEventListener("click",function(){
+  playlist.previous();
+  loadNewTrack(playlist.getActive().src);
+});
+
 audio.addEventListener("play",function(){playBtn.firstChild.src = PAUSE_ICON;},false);
 audio.addEventListener("pause",function(){playBtn.firstChild.src = PLAY_ICON;},false);
+
+// ======================= Volume Control
 
 // Setup volume slider using sliderfy.js
 sliderfy(volumeSlider);
@@ -48,6 +89,8 @@ volumeSlider.addEventListener("change",function(){
   audio.volume = volumeSlider.sliderValue;
 });
 
+// ======================= Time Control
+// Setup time slider using sliderfy,js
 sliderfy(timeSlider);
 timeText.textContent = "0:00";
 // On time update
@@ -70,21 +113,9 @@ timeSlider.addEventListener("change", function(){
   audio.addEventListener("timeupdate",timeUpdateCallback,false);
 });
 
-//Next Button
-nextBtn.addEventListener("click",function(){
-  playlist.next();
-  loadNewTrack(playlist.getActive().src);
-});
-
 // On ended
 audio.addEventListener("ended",function(){
   playlist.next();
-  loadNewTrack(playlist.getActive().src);
-});
-
-//Previous button
-previousBtn.addEventListener("click",function(){
-  playlist.previous();
   loadNewTrack(playlist.getActive().src);
 });
 
