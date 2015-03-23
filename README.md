@@ -7,3 +7,4 @@ The goal is to use as less code as possible and utilize the modern HTML5 technol
 The final version will be accompanied by an administrator panel for customizing design and the playlist.
 
 All included music by TeknoAxe.
+TeknoAxe: teknoaxe.com
